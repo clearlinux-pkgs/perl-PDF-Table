@@ -4,14 +4,15 @@
 #
 Name     : perl-PDF-Table
 Version  : 0.11.0
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-0.11.0.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-0.11.0.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libpdf-table-perl/libpdf-table-perl_0.10.1-1.debian.tar.xz
-Summary  : Perl/CPAN Module PDF::Table: A utility class for building table layouts in a PDF::API2 object.
+Summary  : 'A utility class for building table layouts in a PDF::API2 object.'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-PDF-Table-license = %{version}-%{release}
+Requires: perl-PDF-Table-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -21,7 +22,6 @@ BuildRequires : buildreq-cpan
 Summary: dev components for the perl-PDF-Table package.
 Group: Development
 Provides: perl-PDF-Table-devel = %{version}-%{release}
-Requires: perl-PDF-Table = %{version}-%{release}
 Requires: perl-PDF-Table = %{version}-%{release}
 
 %description dev
@@ -36,18 +36,28 @@ Group: Default
 license components for the perl-PDF-Table package.
 
 
+%package perl
+Summary: perl components for the perl-PDF-Table package.
+Group: Default
+Requires: perl-PDF-Table = %{version}-%{release}
+
+%description perl
+perl components for the perl-PDF-Table package.
+
+
 %prep
 %setup -q -n PDF-Table-0.11.0
-cd ..
-%setup -q -T -D -n PDF-Table-0.11.0 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libpdf-table-perl_0.10.1-1.debian.tar.xz
+cd %{_builddir}/PDF-Table-0.11.0
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/PDF-Table-0.11.0/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/PDF-Table-0.11.0/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -57,7 +67,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -66,7 +76,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-PDF-Table
-cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-PDF-Table/deblicense_copyright
+cp %{_builddir}/PDF-Table-0.11.0/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-PDF-Table/52fe44c5a3cfc7ed3d8d3018260f1d76828c9351
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -79,7 +89,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/PDF/Table.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -87,4 +96,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-PDF-Table/deblicense_copyright
+/usr/share/package-licenses/perl-PDF-Table/52fe44c5a3cfc7ed3d8d3018260f1d76828c9351
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/PDF/Table.pm
