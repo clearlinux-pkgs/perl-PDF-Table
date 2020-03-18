@@ -4,7 +4,7 @@
 #
 Name     : perl-PDF-Table
 Version  : 0.11.0
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-0.11.0.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-0.11.0.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libpdf-table-perl/libpdf-table-perl_0.10.1-1.debian.tar.xz
@@ -76,7 +76,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-PDF-Table
-cp %{_builddir}/PDF-Table-0.11.0/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-PDF-Table/52fe44c5a3cfc7ed3d8d3018260f1d76828c9351
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-PDF-Table/52fe44c5a3cfc7ed3d8d3018260f1d76828c9351
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -100,4 +100,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/PDF/Table.pm
+/usr/lib/perl5/vendor_perl/5.30.2/PDF/Table.pm
