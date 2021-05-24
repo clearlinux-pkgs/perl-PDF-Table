@@ -4,7 +4,7 @@
 #
 Name     : perl-PDF-Table
 Version  : 1.002
-Release  : 23
+Release  : 24
 URL      : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-1.002.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-1.002.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libpdf-table-perl/libpdf-table-perl_0.10.1-1.debian.tar.xz
