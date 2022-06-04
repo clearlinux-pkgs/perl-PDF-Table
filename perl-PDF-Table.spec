@@ -4,7 +4,7 @@
 #
 Name     : perl-PDF-Table
 Version  : 1.002
-Release  : 25
+Release  : 26
 URL      : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-1.002.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-1.002.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libp/libpdf-table-perl/libpdf-table-perl_0.10.1-1.debian.tar.xz
@@ -100,4 +100,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/PDF/Table.pm
+/usr/lib/perl5/*
