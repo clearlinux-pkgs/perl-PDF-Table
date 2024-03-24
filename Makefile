@@ -1,5 +1,5 @@
 PKG_NAME := perl-PDF-Table
-URL = https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-1.005.tar.gz
-ARCHIVES = http://http.debian.net/debian/pool/main/libp/libpdf-table-perl/libpdf-table-perl_0.10.1-1.debian.tar.xz deblicense/
+URL = https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-1.006.tar.gz
+ARCHIVES = 
 
 include ../common/Makefile.common
