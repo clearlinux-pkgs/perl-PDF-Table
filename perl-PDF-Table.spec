@@ -7,7 +7,7 @@
 #
 Name     : perl-PDF-Table
 Version  : 1.007
-Release  : 38
+Release  : 39
 URL      : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-1.007.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OM/OMEGA/PDF-Table-1.007.tar.gz
 Summary  : 'A utility class for building table layouts in a PDF::Builder  (or PDF::API2) object.'
